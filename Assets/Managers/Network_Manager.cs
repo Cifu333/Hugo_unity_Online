@@ -15,8 +15,9 @@ public class Network_Manager : MonoBehaviour
     private StreamReader reader;
     private bool connected = false;
 
-    const string host = "10.40.1.159";
-    const int port = 6543;
+    const string host = "10.40.2.158";
+    //const int port = 6543;
+    const int port = 6227;
 
     private void Awake()
     {
