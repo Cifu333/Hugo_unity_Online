@@ -13,6 +13,9 @@ public class Login_Script : MonoBehaviour
     private void Awake()
     {
         loginButton.onClick.AddListener(Clicked);
+
+        Network_Manager._NETWORK_MANAGER.CheckVersion();
+
     }
 
     private void Clicked()

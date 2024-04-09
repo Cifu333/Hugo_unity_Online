@@ -35,13 +35,36 @@ public class Network_Manager : MonoBehaviour
 
     private void ManageData(string data)
     {
-        if(data == "Ping")
+        string[] parameter = data.Split('/');
+
+        if (parameter[0] == "Ping")
         {
             Debug.Log("Recibo ping");
             writer.WriteLine("1");
             writer.Flush();
         }
+
+        if (parameter[0] == "Ver")
+        {
+            if(PlayerPrefs.GetString ("Parches","-1")!= parameter[1])
+            {
+                PlayerPrefs.SetString("Parches", parameter[1]);
+                PlayerPrefs.Save ();
+                AskRacesInfo();
+            }
+
+        }
+        if (parameter[0] =="racesData")
+        {
+            //aki falyan cosas
+            PlayerPrefs.SetInt("RacesData", int.Parse(parameter[1]));
+            int numberRaces = int.Parse(parameter[1]);
+            Debug.Log (numberRaces);
+            //mirar la razas pasar info falta texto 
+        }
     }
+
+   
 
     private void Update()
     {
@@ -55,6 +78,26 @@ public class Network_Manager : MonoBehaviour
                     ManageData(data);
                 }
             }
+        }
+    }
+
+    public void CheckVersion()
+    {
+        try
+        {
+            socket = new TcpClient(host, port);
+            stream = socket.GetStream();
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+            connected = true;
+
+            writer.WriteLine("3");
+            writer.Flush();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+            connected = false;
         }
     }
 
@@ -77,4 +120,25 @@ public class Network_Manager : MonoBehaviour
             connected = false;
         }
     }
+
+    public void AskRacesInfo()
+    {
+        try
+        {
+            socket = new TcpClient(host, port);
+            stream = socket.GetStream();
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+            connected = true;
+
+            writer.WriteLine("4");
+            writer.Flush();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+            connected = false;
+        }
+    }
+
 }
