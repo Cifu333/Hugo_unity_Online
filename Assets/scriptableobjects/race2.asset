@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b259cccc6b789c4e84d7f0531aa4e77, type: 3}
-  m_Name: actualList
+  m_Script: {fileID: 11500000, guid: 36a25a2e9403ff843910a42e90578959, type: 3}
+  m_Name: race2
   m_EditorClassIdentifier: 
-  Races:
-  - {fileID: 11400000, guid: d25fe098e3ca5d7429c36c6dc6b4d932, type: 2}
-  - {fileID: 11400000, guid: 56d5676b18ed59b48b55bb2ceed2d741, type: 2}
+  idRace: 2
+  name: 
+  velocity: 0
+  damage: 0
+  ratefire: 0
+  life: 0

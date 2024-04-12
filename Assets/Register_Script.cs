@@ -10,13 +10,19 @@ public class Register_Screen : MonoBehaviour
     [SerializeField] private Button loginButton;
     [SerializeField] private Text registerText;
     [SerializeField] private Text passwordText;
-    [SerializeField] private string race;
+    [SerializeField] private int race;
     [SerializeField] private Dropdown dropdown;
 
 
     private void Update()
     {
-        race = dropdown.itemText.text;
+       // race = dropdown.itemText.text;
+
+         if (Network_Manager._NETWORK_MANAGER.GetRegisterData())
+        {
+            SceneManager.LoadScene("Game");
+        }
+
     }
 
     private void Awake()
@@ -28,16 +34,17 @@ public class Register_Screen : MonoBehaviour
     private void Clicked()
     {
         ////mando la info al network manager
-        //Network_Manager._NETWORK_MANAGER.Register(registerText.text.ToString(), passwordText.text.ToString(), race);
+       // Network_Manager._NETWORK_MANAGER.Register(registerText.text.ToString(), passwordText.text.ToString(), race.ToString());
 
-        //if (Network_Manager._NETWORK_MANAGER.GetRegisterInfo())
-        //{
-        //    Network_Manager._NETWORK_MANAGER.SetRegisterInfo(false);
-        //    SceneManager.LoadScene(3);
-        //}
-        //else
-        //{
-        //    //Indicar que el usuario ya existe
-        //}
+      
     }
+
+    public void GetMenuIndex()
+    {
+        race = dropdown.value;
+
+        Debug.Log(race);
+
+    }
+
 }
