@@ -18,6 +18,9 @@ public class Network_Manager : MonoBehaviour
     private bool LoginSuccesful = false;
     private bool RegisterSuccesful = false;
 
+    private string actualPlayer;
+    private int actualRace;
+
     const string host = "10.40.2.158";
     //const int port = 6543;
     const int port = 6227;
@@ -74,6 +77,7 @@ public class Network_Manager : MonoBehaviour
             raceslist.Races[0].damage = float.Parse(parameter[4]);
             raceslist.Races[0].ratefire = float.Parse(parameter[5]);
             raceslist.Races[0].life = float.Parse(parameter[6]);
+            raceslist.Races[0].jump = float.Parse(parameter[7]);
 
             raceslist.Races[1].idRace = int.Parse(parameter[7]);
             raceslist.Races[1].name = parameter[8];
@@ -81,6 +85,7 @@ public class Network_Manager : MonoBehaviour
             raceslist.Races[1].damage = float.Parse(parameter[10]);
             raceslist.Races[1].ratefire = float.Parse(parameter[11]);
             raceslist.Races[1].life = float.Parse(parameter[12]);
+            raceslist.Races[1].jump = float.Parse(parameter[13]);
 
 
 
@@ -97,6 +102,25 @@ public class Network_Manager : MonoBehaviour
                 RegisterSuccesful = true;
             }
         }
+
+        if (parameter[0] == "Login")
+        {
+            if (parameter[1] == "Invalid")
+            {
+               LoginSuccesful = false;
+            }
+            else if (parameter[1] == "Valid")
+            {
+                LoginSuccesful = true;
+            }
+        }
+
+
+        if (parameter[0] == "PlayerRaze")
+        {
+            actualRace = int.Parse(parameter[1]); 
+        }
+
     }
 
    
@@ -136,6 +160,25 @@ public class Network_Manager : MonoBehaviour
         }
     }
 
+    public void ChechActualRace()
+    {
+        try
+        {
+            socket = new TcpClient(host, port);
+            stream = socket.GetStream();
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+            connected = true;
+
+            writer.WriteLine("5");
+            writer.Flush();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+            connected = false;
+        }
+    }
     public void ConnectedToServer(string nick, string password)
     {
         try
@@ -146,11 +189,34 @@ public class Network_Manager : MonoBehaviour
             reader = new StreamReader(stream);
             connected = true;
 
-            writer.WriteLine("0/" +  nick + "/" +password);
+            writer.WriteLine("0/" +  nick + "/" +password
+                );
+            writer.Flush();
+            ChechActualRace();
+            actualPlayer = nick;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+            connected = false;
+        }
+    }
+
+    public void Register(string nick, string password, string race)
+    {
+        try 
+        {
+            socket = new TcpClient(host, port);
+            stream = socket.GetStream();
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+            connected = true;
+
+            writer.WriteLine("2/"+ nick + "/" +password+ "/" +race);
             writer.Flush();
 
         }catch (Exception ex)
-        {
+        { 
             Debug.LogException(ex);
             connected = false;
         }

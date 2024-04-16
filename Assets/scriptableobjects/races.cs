@@ -13,5 +13,6 @@ public class races : ScriptableObject
     public float damage;
     public float ratefire;
     public float life;
+    public float jump;
     
 }
