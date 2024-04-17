@@ -79,13 +79,13 @@ public class Network_Manager : MonoBehaviour
             raceslist.Races[0].life = float.Parse(parameter[6]);
             raceslist.Races[0].jump = float.Parse(parameter[7]);
 
-            raceslist.Races[1].idRace = int.Parse(parameter[7]);
-            raceslist.Races[1].name = parameter[8];
-            raceslist.Races[1].velocity = float.Parse(parameter[9]);
-            raceslist.Races[1].damage = float.Parse(parameter[10]);
-            raceslist.Races[1].ratefire = float.Parse(parameter[11]);
-            raceslist.Races[1].life = float.Parse(parameter[12]);
-            raceslist.Races[1].jump = float.Parse(parameter[13]);
+            raceslist.Races[1].idRace = int.Parse(parameter[8]);
+            raceslist.Races[1].name = parameter[0];
+            raceslist.Races[1].velocity = float.Parse(parameter[10]);
+            raceslist.Races[1].damage = float.Parse(parameter[11]);
+            raceslist.Races[1].ratefire = float.Parse(parameter[12]);
+            raceslist.Races[1].life = float.Parse(parameter[13]);
+            raceslist.Races[1].jump = float.Parse(parameter[14]);
 
 
 
@@ -192,8 +192,7 @@ public class Network_Manager : MonoBehaviour
             writer.WriteLine("0/" +  nick + "/" +password
                 );
             writer.Flush();
-            ChechActualRace();
-            actualPlayer = nick;
+                   actualPlayer = nick;
         }
         catch (Exception ex)
         {

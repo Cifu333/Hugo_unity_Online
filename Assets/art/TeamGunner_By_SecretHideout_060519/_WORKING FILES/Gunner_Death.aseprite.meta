@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 3fbe3066e6460974d91f798f65025037
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Gunner_Death_Frame_0
+    originalName: 
+    pivot: {x: 0.41379312, y: -0.28125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 29
+      height: 32
+    spriteID: 5b37177aaa3d5d6428cafed63991718f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Gunner_Death_Frame_1
+    originalName: 
+    pivot: {x: 0.34482762, y: -0.3}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 29
+      height: 30
+    spriteID: 6964d77d819af964fb23530152be9f61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
+  - name: Gunner_Death_Frame_2
+    originalName: 
+    pivot: {x: 0.34615386, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 4
+      width: 26
+      height: 27
+    spriteID: 35e1dbee67deb514280d4554646cb7b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 4}
+  - name: Gunner_Death_Frame_3
+    originalName: 
+    pivot: {x: 0.44827583, y: -0.31034485}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 82
+      width: 29
+      height: 29
+    spriteID: 9bf3f797f31bccc429b2e9ed95395bcf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 82}
+  - name: Gunner_Death_Frame_4
+    originalName: 
+    pivot: {x: 0.6, y: -0.39130434}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 75
+      y: 4
+      width: 30
+      height: 23
+    spriteID: d3d882ac5c968bb49ac169c89000e922
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 75, y: 4}
+  - name: Gunner_Death_Frame_5
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.5714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 75
+      y: 58
+      width: 35
+      height: 14
+    spriteID: de6a98641b6fdc44e96d0457c1d76591
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 75, y: 58}
+  - name: Gunner_Death_Frame_6
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.53333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 75
+      y: 35
+      width: 35
+      height: 15
+    spriteID: 361b3a3b7778ea8449cbb3de4d8089d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 75, y: 35}
+  - name: Gunner_Death_Frame_7
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.5714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 75
+      y: 80
+      width: 35
+      height: 14
+    spriteID: 4704c0ec4c15a8d4ea39167c7a793952
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 75, y: 80}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -9092740
+    name: Gunner_Death
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Gunner_Death_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 12
+        y: 9
+        width: 29
+        height: 32
+      spriteId: 5b37177aaa3d5d6428cafed63991718f
+    - name: Gunner_Death_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 14
+        y: 9
+        width: 29
+        height: 30
+      spriteId: 6964d77d819af964fb23530152be9f61
+    - name: Gunner_Death_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 15
+        y: 9
+        width: 26
+        height: 27
+      spriteId: 35e1dbee67deb514280d4554646cb7b9
+    - name: Gunner_Death_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 11
+        y: 9
+        width: 29
+        height: 29
+      spriteId: 9bf3f797f31bccc429b2e9ed95395bcf
+    - name: Gunner_Death_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 6
+        y: 9
+        width: 30
+        height: 23
+      spriteId: d3d882ac5c968bb49ac169c89000e922
+    - name: Gunner_Death_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 8
+        width: 35
+        height: 14
+      spriteId: de6a98641b6fdc44e96d0457c1d76591
+    - name: Gunner_Death_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 8
+        width: 35
+        height: 15
+      spriteId: 361b3a3b7778ea8449cbb3de4d8089d7
+    - name: Gunner_Death_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 4
+        y: 8
+        width: 35
+        height: 14
+      spriteId: 4704c0ec4c15a8d4ea39167c7a793952
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 48, y: 48}
