@@ -53,14 +53,14 @@ private Rigidbody2D rb;
 
     private void CheckInputs()
     {
-        desiredMovementAxix = Input.GetAxis("Horizontal");
+        desiredMovementAxix = InputManagers.inputManagerInstance.GetLeftAxisUpdate().x;
 
-        if(Input.GetButtonDown("Jump")&& Mathf.Approximately(rb.velocity.y, 0f))
+        if (InputManagers.inputManagerInstance.GetJump()==0 && Mathf.Approximately(rb.velocity.y, 0f))
         {
             rb.AddForce(new Vector2(0f, jumpforce));
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftControl)) 
+        if(InputManagers.inputManagerInstance.GetShoot()==0) 
         {
             Shoot();
         }
