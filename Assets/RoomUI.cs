@@ -26,12 +26,12 @@ public class RoomUI : MonoBehaviour
     }
     private void CreateRoom()
     {
-        PhotonManager._PHOTON_MANAGER.CreateRoom(createText.text.ToString());
+        Photon_Manager.instance.CreateRoom(createText.text.ToString());
     }
 
     private void JoinRoom()
     {
-        PhotonManager._PHOTON_MANAGER.JoinRoom(joinText.text.ToString());
+        Photon_Manager.instance.JoinRoom(joinText.text.ToString());
     }
 
 }

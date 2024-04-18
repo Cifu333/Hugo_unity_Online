@@ -261,4 +261,9 @@ public class Network_Manager : MonoBehaviour
         RegisterSuccesful = false;
     }
 
+    public whitelist GetRacesList()
+    {
+        return raceslist;
+    }
+
 }

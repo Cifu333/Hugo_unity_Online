@@ -195,9 +195,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8607f8fb4fb0df94ba5dd6ac0e009c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 0}
   speed: 600
   jumpforce: 400
   bulletSped: 600
+  health: 0
+  fireSpeed: 0
+  damage: 0
+  playerName: {fileID: 0}
   BulletSpawnPoint: {fileID: 0}
 --- !u!1001 &6842505009434921920
 PrefabInstance:
