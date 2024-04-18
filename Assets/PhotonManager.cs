@@ -52,7 +52,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom(string roomName)
     {
-        PhotonNetwork.CreateRoom(roomName,new RoomOptions {MaxPlayers= 2 }) ;
+        Debug.Log(roomName);
+        PhotonNetwork.CreateRoom(roomName, new RoomOptions {MaxPlayers= 8 }) ;
     }
 
     public void JoinRoom(string roomName)
@@ -63,13 +64,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Me he unido a la sala guay" + PhotonNetwork.CurrentRoom.Name + "com:" + PhotonNetwork.CurrentRoom.PlayerCount + "jugador");
+        Debug.Log("Me he unido a la sala guay " + PhotonNetwork.CurrentRoom.Name + " com:" + PhotonNetwork.CurrentRoom.PlayerCount + " jugador");
 
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Debug.Log("No se ha unido" + returnCode + "que significa" + message);
+        Debug.Log("No se ha unido " + returnCode + " que significa" + message);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -78,6 +79,5 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LoadLevel("Ingame");
         }
-        
     }
 }

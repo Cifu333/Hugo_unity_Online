@@ -30,7 +30,7 @@ public class PlayerAnimator : MonoBehaviour
         //    isShooting = false;
         //}
 
-        m_Animator.SetBool("IsMoving", InputManagers.inputManagerInstance.GetLeftAxisPressed());
+      //  m_Animator.SetBool("IsMoving", InputManagers.inputManagerInstance.GetLeftAxisPressed());
 
         //m_Animator.SetBool("IsJumping", isJumping);
 

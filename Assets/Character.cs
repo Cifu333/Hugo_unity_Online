@@ -12,12 +12,17 @@ public class Character : MonoBehaviour, IPunObservable
     [SerializeField]
     private float jumpforce = 400f;
 
+    [SerializeField]
+    private float bulletSped = 600f;
 
-private Rigidbody2D rb;
+
+    private Rigidbody2D rb;
     private float desiredMovementAxix = 0f;
 
     private PhotonView pv;
     private Vector3 enemyPosition = Vector3.zero;
+
+    public Transform BulletSpawnPoint;
 
     private void Awake()
     {
@@ -54,6 +59,7 @@ private Rigidbody2D rb;
     private void CheckInputs()
     {
         desiredMovementAxix = InputManagers.inputManagerInstance.GetLeftAxisUpdate().x;
+        Debug.Log(desiredMovementAxix);
 
         if (InputManagers.inputManagerInstance.GetJump()==0 && Mathf.Approximately(rb.velocity.y, 0f))
         {
@@ -68,7 +74,10 @@ private Rigidbody2D rb;
 
     private void Shoot()
     {
-        PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f,0f), Quaternion.identity);
+        // PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f,0f), Quaternion.identity);
+        //var bullet = PhotonNetwork.Instantiate("Bullet", BulletSpawnPoint.position, BulletSpawnPoint.rotation);
+        //bullet.GetComponent<Rigidbody2D>().velocity = BulletSpawnPoint.up * bulletSped;
+        
     }
 
     public void Damage()
