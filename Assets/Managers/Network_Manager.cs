@@ -21,7 +21,7 @@ public class Network_Manager : MonoBehaviour
     private string actualPlayer;
     private int actualRace;
 
-    const string host = "10.40.2.158";
+    const string host = "10.40.1.29";
     //const int port = 6543;
     const int port = 6227;
 

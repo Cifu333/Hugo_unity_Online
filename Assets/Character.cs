@@ -5,6 +5,7 @@ using Photon.Pun;
 using System.Runtime.CompilerServices;
 using Photon.Pun.Demo.PunBasics;
 using UnityEngine.UI;
+using TMPro;
 
 public class Character : MonoBehaviour, IPunObservable
 {
@@ -35,7 +36,7 @@ public class Character : MonoBehaviour, IPunObservable
 
 
     [SerializeField]
-    private Text playerName;
+    private TextMeshProUGUI playerName;
 
     private string myName;
     private int myRace;
@@ -63,10 +64,13 @@ public class Character : MonoBehaviour, IPunObservable
 
     private void Update()
    {
+      
+
         Debug.Log(myRace);
 
         if (pv.IsMine)
         {
+            
             playerName.text = myName;
 
             if (myRace == 1)
@@ -96,6 +100,8 @@ public class Character : MonoBehaviour, IPunObservable
         }
         else
         {
+           
+
             playerName.text = enemyName;
 
 
@@ -122,6 +128,14 @@ public class Character : MonoBehaviour, IPunObservable
             }
             SmootReplicate();
         }
+        if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x < 0)
+        {
+            rend.flipX = true;
+        }
+        else if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x > 0)
+        {
+            rend.flipX = false;
+        }
     }
     private void SmootReplicate()
     {
@@ -145,15 +159,17 @@ public class Character : MonoBehaviour, IPunObservable
 
         if(InputManagers.inputManagerInstance.GetShoot()==0) 
         {
+            Debug.Log("DISPARO11");
             Shoot();
+            Debug.Log("DISPARO");
         }
     }
 
     private void Shoot()
     {
-        // PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f,0f), Quaternion.identity);
-        //var bullet = PhotonNetwork.Instantiate("Bullet", BulletSpawnPoint.position, BulletSpawnPoint.rotation);
-        //bullet.GetComponent<Rigidbody2D>().velocity = BulletSpawnPoint.up * bulletSped;
+        PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f,0f), Quaternion.identity);
+        var bullet = PhotonNetwork.Instantiate("Bullet", BulletSpawnPoint.position, BulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = BulletSpawnPoint.up * bulletSped;
         
     }
 

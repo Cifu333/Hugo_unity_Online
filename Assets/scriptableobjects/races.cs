@@ -6,7 +6,6 @@ using UnityEngine;
 public class races : ScriptableObject
 {
  
-
     public int idRace;
     public new string name;
     public float velocity;
