@@ -38,6 +38,7 @@ public class Character : MonoBehaviour, IPunObservable
     [SerializeField]
     private TextMeshProUGUI playerName;
 
+ 
     private string myName;
     private int myRace;
     private bool isGrounded;
@@ -47,12 +48,21 @@ public class Character : MonoBehaviour, IPunObservable
     private Rigidbody2D rb;
     private float desiredMovementAxix = 0f;
 
-    private Vector3 enemyPosition = Vector3.zero;
-    private string enemyName;
-    private int enemyRace;
-    private float enemyDirection;
+    //private Vector3 enemyPosition = Vector3.zero;
+    //private string enemyName;
+   // private int enemyRace;
+   // private float enemyDirection;
 
     public Transform BulletSpawnPoint;
+    //
+    private string otherPlayerName;
+    private int otherRaceId;
+    private float otherDirX;
+    private Vector3 enemyPosition = Vector3.zero;
+    private bool isDamageOther;
+    private float otherHealth;
+  
+
 
     private void Awake()
     {
@@ -102,10 +112,10 @@ public class Character : MonoBehaviour, IPunObservable
         {
            
 
-            playerName.text = enemyName;
+           // playerName.text = enemyName;
 
 
-            if (enemyRace == 1)
+            if (otherRaceId == 1)
             {
                 rend.color = Color.grey;
             }
@@ -117,7 +127,7 @@ public class Character : MonoBehaviour, IPunObservable
             //Asignar los valores de las razas
             for (int i = 0; i < Network_Manager._NETWORK_MANAGER.GetRacesList().Races.Count; i++)
             {
-                if (Network_Manager._NETWORK_MANAGER.GetRacesList().Races[i].idRace == enemyRace)
+                if (Network_Manager._NETWORK_MANAGER.GetRacesList().Races[i].idRace == otherRaceId)
                 {
                     health = Network_Manager._NETWORK_MANAGER.GetRacesList().Races[i].life;
                     fireSpeed = Network_Manager._NETWORK_MANAGER.GetRacesList().Races[i].ratefire;
@@ -128,18 +138,20 @@ public class Character : MonoBehaviour, IPunObservable
             }
             SmootReplicate();
         }
-        if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x < 0)
-        {
-            rend.flipX = true;
-        }
-        else if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x > 0)
-        {
-            rend.flipX = false;
-        }
+       
     }
     private void SmootReplicate()
     {
-        transform.position = Vector3.Lerp(transform.position, enemyPosition,Time.deltaTime * 20);
+        transform.position = Vector3.Lerp(transform.position, enemyPosition, Time.deltaTime * 20);
+
+        if (otherDirX < 0)
+        {
+            rend.flipX = true;
+        }
+        else if (otherDirX > 0)
+        {
+            rend.flipX = false;
+        }
     }
 
     private void FixedUpdate()
@@ -163,20 +175,50 @@ public class Character : MonoBehaviour, IPunObservable
             Shoot();
             Debug.Log("DISPARO");
         }
+        if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x < 0)
+        {
+            rend.flipX = true;
+        }
+        else if (InputManagers.inputManagerInstance.GetLeftAxisUpdate().x > 0)
+        {
+            rend.flipX = false;
+        }
     }
 
     private void Shoot()
     {
-        PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f,0f), Quaternion.identity);
-        var bullet = PhotonNetwork.Instantiate("Bullet", BulletSpawnPoint.position, BulletSpawnPoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().velocity = BulletSpawnPoint.up * bulletSped;
-        
+      
+
+        if (rend.flipX == false)
+        {
+           GameObject temp=  PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
+            BulletScript bulletTemp = temp.GetComponent<BulletScript>();
+
+            bulletTemp.SetVelocity(1);
+          
+
+
+
+        }
+        else if (rend.flipX == true)
+        {
+            GameObject temp = PhotonNetwork.Instantiate("Bullet", transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+            BulletScript bulletTemp = temp.GetComponent<BulletScript>();
+
+            bulletTemp.SetVelocity(-1);
+           
+
+        }
+
     }
 
     public void Damage()
     {
         pv.RPC("NetworkDamage", RpcTarget.All);
+        otherHealth -= 10;
     }
+
+   
 
     [PunRPC]
     private void NetworkDamage()
@@ -215,19 +257,24 @@ public class Character : MonoBehaviour, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(stream.IsWriting)
+        if (stream.IsWriting)
         {
             stream.SendNext(transform.position);
             stream.SendNext(myName);
             stream.SendNext(myRace);
             stream.SendNext(InputManagers.inputManagerInstance.GetLeftAxisUpdate().x);
+            //stream.SendNext(isDamage);
+            stream.SendNext(health);
         }
-        else if(stream.IsReading) 
+        else if (stream.IsReading)
         {
             enemyPosition = (Vector3)stream.ReceiveNext();
-            enemyName = (string)stream.ReceiveNext();
-            enemyRace = (int)stream.ReceiveNext();
-            enemyDirection = (int)stream.ReceiveNext();
+            otherPlayerName = (string)stream.ReceiveNext();
+            otherRaceId = (int)stream.ReceiveNext();
+            otherDirX = (float)stream.ReceiveNext();
+            isDamageOther = (bool)stream.ReceiveNext();
+            otherHealth = (float)stream.ReceiveNext();
+           
         }
     }
     

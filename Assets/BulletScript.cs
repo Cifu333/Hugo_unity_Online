@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Bullet : MonoBehaviour
+public class BulletScript : MonoBehaviourPun
 {
+    [SerializeField] private float speed = 20f;
 
-
-    [SerializeField]
-    private float speed = 10f;
     private Rigidbody2D rb;
-
     private PhotonView pv;
+
 
     private void Awake()
     {
@@ -19,20 +17,21 @@ public class Bullet : MonoBehaviour
         pv = GetComponent<PhotonView>();
     }
 
-    private void Update()
-    {
-        rb.velocity =new Vector3(speed,0f);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        pv.RPC("NetworkDestroy", RpcTarget.All);
+        pv.RPC("NetworkDestory", RpcTarget.All);
+
         collision.gameObject.GetComponent<Character>().Damage();
     }
 
     [PunRPC]
-    public void NetworkDestroy()
+    public void NetworkDestory()
     {
         Destroy(this.gameObject);
+    }
+
+    public void SetVelocity(float dir)
+    {
+        rb.velocity = new Vector2(speed * dir, 0);
     }
 }

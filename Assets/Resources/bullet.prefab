@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4424246332160619795}
   - component: {fileID: 2674233181447909818}
   - component: {fileID: 1936881634898709732}
-  - component: {fileID: -8680933035868613875}
+  - component: {fileID: 3914093197974499618}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8345616686336414120
 SpriteRenderer:
@@ -182,7 +182,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-8680933035868613875
+--- !u!114 &3914093197974499618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6461062853171809892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b912e36e00c445747a6d896abaf19b32, type: 3}
+  m_Script: {fileID: 11500000, guid: 718f5894fa8f64a49bb8d6244a1de1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
